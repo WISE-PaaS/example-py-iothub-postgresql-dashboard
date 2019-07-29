@@ -137,7 +137,7 @@ Create => Dashboard => We choose "Graph"
 
 Panel Title => Edit
 
-## The "A" and "B" is the same thing just use the different way
+## The "A" and "B" is the same thing just use the different way，you only need one
 
 ![Imgur](https://i.imgur.com/NYmmksN.png)
 
