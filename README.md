@@ -133,14 +133,14 @@ We need to add datasource first。
 
 Create => Dashboard => We choose "Graph"
 
-[Imgur](https://i.imgur.com/MYHUkyz.png)
+![Imgur](https://i.imgur.com/MYHUkyz.png)
 
 Panel Title => Edit
 
 ## The "A" and "B" is the same thing just use the different way
 
-[Imgur](https://i.imgur.com/NYmmksN.png)
+![Imgur](https://i.imgur.com/NYmmksN.png)
 
 Now we can see our data in Dashboard graph
 
-[Imgur](https://i.imgur.com/oiRzAtS.png)
+![Imgur](https://i.imgur.com/oiRzAtS.png)
