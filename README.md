@@ -1,6 +1,6 @@
-# Example-python-Iothub-Postgresql
+# Example-python-Iothub-Postgresql-Dashboard
 
-This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service。
+This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service，and finally use Dashboard to show the postgresql database with iothub send。
 
 **https://wise-paas.advantech.com/en-us**
 
