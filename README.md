@@ -120,7 +120,7 @@ go to pdAdmin(Servers => create => server)
 
 ### Open Dashboard
 
-_If you create your own service instance your nedd to bind it to Dashboard first_
+_ Notice:If you create your own service instance your nedd to bind it to Dashboard first_
 
 We need to add datasource first。
 (Configuration => Data sources => Add Datasource => choose the "Postgresql")
