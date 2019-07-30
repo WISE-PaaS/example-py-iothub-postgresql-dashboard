@@ -2,7 +2,14 @@
 
 This is WIES-PaaS iothub example-code include the sso、rabbitmq、Postgresql service，and finally use Dashboard to show the postgresql database with iothub send。
 
-**https://wise-paas.advantech.com/en-us**
+[cf-introduce](https://advantech.wistia.com/medias/ll0ov3ce9e)
+
+[IotHub](https://advantech.wistia.com/medias/up3q2vxvn3)
+
+[Dashboard](https://advantech.wistia.com/medias/bpvxpuvnk4)
+
+[graph](https://advantech.wistia.com/medias/hluoy8qdz3)
+
 
 ## Quick Start
 
