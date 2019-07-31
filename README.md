@@ -21,7 +21,15 @@ python3
 
 [https://www.python.org/downloads/](https://www.python.org/downloads/?source=post_page---------------------------)
 
+#### Postgrsql
+
+You can download pgAdmin so you can see the result in WISE-PaaS Postgresql servince instance
+
+[https://www.postgresql.org/](https://www.postgresql.org/)
+
 ![](https://cdn-images-1.medium.com/max/2000/1*iJwh3dROjmveF8x1rC6zag.png)
+
+
 
 python3 package(those library you can try application in local):
 
