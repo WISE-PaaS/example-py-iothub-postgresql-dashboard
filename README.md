@@ -36,7 +36,7 @@ python3 package(those library you can try application in local):
 
 ## Download this file
 
-    git clone this respository
+    git clone this repository
 
 ## Login to WISE-PaaS
 
