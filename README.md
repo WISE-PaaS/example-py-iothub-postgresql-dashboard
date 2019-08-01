@@ -65,6 +65,9 @@ open **`manifest.yml`** and editor the **application name** to yours，because t
 
 ![Imgur](https://i.imgur.com/OQegiAy.png)
 
+**Service Instance Name**
+![Imgur](https://i.imgur.com/VVMcYO8.png)
+
 #### SSO(Single Sign On)
 
 This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
@@ -111,6 +114,8 @@ POSTGRES = {
 ```
 
 Create schema & table bind in group to `groupfamily`。 
+
+![Imgur](https://i.imgur.com/6777rmg.png)
 
 ```py
 
@@ -166,7 +171,6 @@ client.loop_start()
 ```
 
 
-![Imgur](https://i.imgur.com/6777rmg.png)
 
 
 
@@ -185,8 +189,8 @@ Push application & Bind PostgreSQL、Rabbitmq service instance
     #cf start {application_name}
     cf start python-demo-postgresql
 
-**service_instance_name**
-![Imgur](https://i.imgur.com/VVMcYO8.png)
+
+
 
 You can look it does it sueeess use
 
