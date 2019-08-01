@@ -81,6 +81,8 @@ If you don't want it，you can ignore it。
 
 (In `index.js` the service name need same to WISE-PaaS Service name)
 
+![Imgur](https://i.imgur.com/6777rmg.png)
+
 ```py
 
 # MQTT(rabbitmq)
@@ -115,7 +117,6 @@ POSTGRES = {
 
 Create schema & table bind in group to `groupfamily`。 
 
-![Imgur](https://i.imgur.com/6777rmg.png)
 
 ```py
 
