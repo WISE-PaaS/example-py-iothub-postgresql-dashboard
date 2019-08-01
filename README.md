@@ -63,6 +63,8 @@ python3 package(those library you can try application in local):
 
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
+We bind service in **manifest.yml** in `services`，and we will bind again in downside use command line
+
 ![Imgur](https://i.imgur.com/OQegiAy.png)
 
 **Service Instance Name**
