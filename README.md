@@ -56,12 +56,16 @@ python3 package(those library you can try application in local):
 
     #check the cf status
     cf target
+    
+ ## Application Introduce
+
+#### manifest.yml
 
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
 ![Imgur](https://i.imgur.com/OQegiAy.png)
 
-## SSO(Single Sign On)
+#### SSO(Single Sign On)
 
 This is the [sso](https://advantech.wistia.com/medias/vay5uug5q6) applicaition，open **`templates/index.html`** and editor the `ssoUrl` to your application name，
 
@@ -70,9 +74,101 @@ If you don't want it，you can ignore it。
 #change this **`python-demo-jimmy`** to your **application name**
 var ssoUrl = myUrl.replace('python-demo-jimmy', 'portal-sso');
 
+#### index.py
+
 (In `index.js` the service name need same to WISE-PaaS Service name)
-![https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG](https://github.com/WISE-PaaS/example-python-iothub-postgresql/blob/master/source/servicename.PNG)
+
+```py
+
+# MQTT(rabbitmq)
+vcap_services = os.getenv('VCAP_SERVICES')
+vcap_services_js = json.loads(vcap_services)
+service_name = 'p-rabbitmq'
+broker = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['host']
+username = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['username'].strip()
+password = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['password'].strip()
+mqtt_port = vcap_services_js[service_name][0]['credentials']['protocols']['mqtt']['port']
+
+
+# Postgresql
+service_name = 'postgresql-innoworks'
+database_database = vcap_services_js[service_name][0]['credentials']['database']
+database_username = vcap_services_js[service_name][0]['credentials']['username'].strip(
+)
+database_password = vcap_services_js[service_name][0]['credentials']['password'].strip(
+)
+database_port = vcap_services_js[service_name][0]['credentials']['port']
+database_host = vcap_services_js[service_name][0]['credentials']['host']
+
+POSTGRES = {
+    'user': database_username,
+    'password': database_password,
+    'db': database_database,
+    'host': database_host,
+    'port': database_port,
+}
+
+```
+
+Create schema & table bind in group to `groupfamily`。 
+
+```py
+
+schema = 'room'
+table = 'livingroom'
+group = 'groupfamily'
+engine = sqlalchemy.create_engine('postgresql://%(user)s:\
+%(password)s@%(host)s:%(port)s/%(db)s' % POSTGRES, echo=True)  # connect to server
+
+
+engine.execute("CREATE SCHEMA IF NOT EXISTS "+schema+" ;")  # create schema
+
+engine.execute("ALTER SCHEMA "+schema+" OWNER TO "+group+" ;")
+
+engine.execute("CREATE TABLE IF NOT EXISTS "+schema+"."+table+" \
+        ( id serial, \
+          timestamp timestamp (2) default current_timestamp, \
+          temperature integer, \
+          PRIMARY KEY (id));")
+
+engine.execute("ALTER TABLE "+schema+"."+table+" OWNER to "+group+";")
+engine.execute("GRANT ALL ON ALL TABLES IN SCHEMA "+schema+" TO "+group+";")
+engine.execute("GRANT ALL ON ALL SEQUENCES IN SCHEMA "+schema+" TO "+group+";")
+```
+
+connect to mqtt service，and use `on_message` to insert data，because we want to use dashboard we need have timestamp and we already define in table `timestamp timestamp (2) default  current_timestamp`，so we insert one data it will creat data automatic。
+
+```py
+
+# mqtt connect
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+    client.subscribe("/hello")
+    print('subscribe on /hello')
+
+
+def on_message(client, userdata, msg):
+
+    engine.execute("INSERT INTO "+str(schema)+"."+str(table) +
+                   " (temperature) VALUES ("+str(msg.payload.decode())+") ", echo=True)
+    print('insert sueecssful')
+    print(msg.topic+','+msg.payload.decode())
+
+
+client = mqtt.Client()
+
+client.username_pw_set(username, password)
+client.on_connect = on_connect
+client.on_message = on_message
+
+client.connect(broker, mqtt_port, 60)
+client.loop_start()
+```
+
+
 ![Imgur](https://i.imgur.com/6777rmg.png)
+
+
 
 Push application & Bind PostgreSQL、Rabbitmq service instance
 
