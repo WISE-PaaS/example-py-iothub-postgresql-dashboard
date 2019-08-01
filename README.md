@@ -136,7 +136,7 @@ engine.execute("GRANT ALL ON ALL TABLES IN SCHEMA "+schema+" TO "+group+";")
 engine.execute("GRANT ALL ON ALL SEQUENCES IN SCHEMA "+schema+" TO "+group+";")
 ```
 
-connect to mqtt service，and use `on_message` to insert data，because we want to use dashboard we need have timestamp and we already define in table `timestamp timestamp (2) default  current_timestamp`，so we insert one data it will creat data automatic。
+Connect to mqtt service，and use `on_message` to insert data，because we want to use dashboard we need have `timestamp` and we already define in table `timestamp timestamp (2) default  current_timestamp`，so we insert one data it will creat Date automatic。
 
 ```py
 
