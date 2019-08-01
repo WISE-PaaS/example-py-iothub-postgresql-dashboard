@@ -63,7 +63,7 @@ python3 package(those library you can try application in local):
 
 open **`manifest.yml`** and editor the **application name** to yours，because the appication can't duplicate。
 
-We bind service in **manifest.yml** in `services`，and we will bind again in downside use command line
+We bind service in **manifest.yml** in `services`，and we will bind again in downside use command line，but we cann't bind postgresql in manifest.yml because the postgresql need bind group first。
 
 ![Imgur](https://i.imgur.com/OQegiAy.png)
 
