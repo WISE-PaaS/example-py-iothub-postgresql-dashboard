@@ -85,6 +85,8 @@ If you don't want it，you can ignore it。
 
 ![Imgur](https://i.imgur.com/6777rmg.png)
 
+We can get application environment use os.getenv() and `VCAP_SERVICES` is a json array save our service config。
+
 ```py
 
 # MQTT(rabbitmq)
