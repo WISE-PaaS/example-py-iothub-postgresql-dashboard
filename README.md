@@ -205,8 +205,26 @@ You can look it does it sueeess use
 
 get the application environment
 
-#get the application environment
-cf env {application name} > env.json
+    #get the application environment
+    cf env {application name} > env.json
+
+**Publisher.py
+
+This file can send data use publish to `/hello` topic
+
+```py
+def on_publish(client,userdata,result):             #create function for callback
+    print("data published")
+   
+client= mqtt.Client()                           #create client object
+
+client.username_pw_set(username,password)
+
+client.on_publish = on_publish                          #assign function to callback
+client.connect(broker,mqtt_port)                                 #establish connection
+client.publish("/hello",random.randint(10,30))  
+```
+
 
 Edit the **publisher.py** `broker、port、username、password` you can find in **env.json**
 
