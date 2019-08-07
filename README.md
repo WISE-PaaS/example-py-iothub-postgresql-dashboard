@@ -44,7 +44,7 @@ python3 package(those library you can try application in local):
 
 ## Download this file
 
-    git clone this repository
+    git clone https://github.com/WISE-PaaS/example-py-iothub-postgresql-dashboard.git
 
 ## Login to WISE-PaaS
 
